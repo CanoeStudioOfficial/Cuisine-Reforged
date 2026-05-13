@@ -1,6 +1,6 @@
 {
-    "pack": {
-        "description": "Assets used by \"Cuisine\" Mod.",
-        "pack_format": 3
-    }
+	"pack": {
+		"description": "${mod_name} Resources",
+		"pack_format": 3
+	}
 }
