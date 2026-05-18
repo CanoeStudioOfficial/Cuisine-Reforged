@@ -59,6 +59,8 @@ public final class CulinaryHub
         public static final Material PORK = find("pork");
         public static final Material MUTTON = find("mutton");
         public static final Material RABBIT = find("rabbit");
+        public static final Material MEAT = find("meat");
+        public static final Material COOKED_MEAT = find("cooked_meat");
         public static final Material FISH = find("fish");
         public static final Material PICKLED = find("pickled");
         public static final Material BAMBOO_SHOOT = find("bamboo_shoot");

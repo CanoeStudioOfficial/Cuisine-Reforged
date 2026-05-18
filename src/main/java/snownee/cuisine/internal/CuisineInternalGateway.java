@@ -482,6 +482,8 @@ public final class CuisineInternalGateway implements CuisineAPI
                 MaterialBuilder.of("pork").rawColor(-2133904).category(MaterialCategory.MEAT).form(Form.ALL_FORMS).build(),
                 MaterialBuilder.of("mutton").rawColor(-3917262).saturation(0f).category(MaterialCategory.MEAT).form(Form.ALL_FORMS).build(),
                 MaterialBuilder.of("rabbit").rawColor(-4882580).saturation(0.1f).category(MaterialCategory.MEAT).form(Form.ALL_FORMS).effect(CulinaryHub.CommonEffects.JUMP_BOOST).build(),
+                MaterialBuilder.of("meat").rawColor(0xCC7755).category(MaterialCategory.MEAT).form(Form.ALL_FORMS).build(),
+                MaterialBuilder.of("cooked_meat").rawColor(0x995533).category(MaterialCategory.MEAT).form(Form.ALL_FORMS).build(),
                 MaterialBuilder.of("fish").rawColor(-10583426).category(MaterialCategory.FISH).form(Form.ALL_FORMS).build(),
                 new MaterialPufferfish("pufferfish"),
                 MaterialBuilder.of("pickled").rawColor(-13784).saturation(0.3f).effect(CulinaryHub.CommonEffects.ALWAYS_EDIBLE).form(Form.ALL_FORMS).build(),
@@ -572,6 +574,13 @@ public final class CuisineInternalGateway implements CuisineAPI
         api.oreDictIngredients.put("listAllbeefraw", new Ingredient(CulinaryHub.CommonMaterials.BEEF, Form.FULL));
         api.oreDictIngredients.put("listAllchickenraw", new Ingredient(CulinaryHub.CommonMaterials.CHICKEN, Form.FULL));
         api.oreDictIngredients.put("listAllrabbitraw", new Ingredient(CulinaryHub.CommonMaterials.RABBIT, Form.FULL));
+        api.oreDictIngredients.put("listAllmeatraw", new Ingredient(CulinaryHub.CommonMaterials.MEAT, Form.FULL));
+        api.oreDictIngredients.put("listAllmeatcooked", new Ingredient(CulinaryHub.CommonMaterials.COOKED_MEAT, Form.FULL));
+        api.oreDictIngredients.put("listAllbeefcooked", new Ingredient(CulinaryHub.CommonMaterials.BEEF, Form.FULL));
+        api.oreDictIngredients.put("listAllporkcooked", new Ingredient(CulinaryHub.CommonMaterials.PORK, Form.FULL));
+        api.oreDictIngredients.put("listAllchickencooked", new Ingredient(CulinaryHub.CommonMaterials.CHICKEN, Form.FULL));
+        api.oreDictIngredients.put("listAllrabbitcooked", new Ingredient(CulinaryHub.CommonMaterials.RABBIT, Form.FULL));
+        api.oreDictIngredients.put("listAllmuttoncooked", new Ingredient(CulinaryHub.CommonMaterials.MUTTON, Form.FULL));
         api.oreDictIngredients.put("blockCactus", new Ingredient(CulinaryHub.CommonMaterials.CACTUS, Form.FULL));
         api.oreDictIngredients.put("foodPickles", new Ingredient(CulinaryHub.CommonMaterials.PICKLED, Form.FULL));
         api.oreDictIngredients.put("cropMandarin", new Ingredient(CulinaryHub.CommonMaterials.MANDARIN, Form.FULL));

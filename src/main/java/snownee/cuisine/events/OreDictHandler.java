@@ -86,6 +86,18 @@ public class OreDictHandler
         OreDictionary.registerOre("listAllmuttonraw", Items.MUTTON);
         OreDictionary.registerOre("listAllmeatraw", Items.MUTTON);
 
+        // COOKED MEAT
+        OreDictionary.registerOre("listAllbeefcooked", Items.COOKED_BEEF);
+        OreDictionary.registerOre("listAllmeatcooked", Items.COOKED_BEEF);
+        OreDictionary.registerOre("listAllporkcooked", Items.COOKED_PORKCHOP);
+        OreDictionary.registerOre("listAllmeatcooked", Items.COOKED_PORKCHOP);
+        OreDictionary.registerOre("listAllchickencooked", Items.COOKED_CHICKEN);
+        OreDictionary.registerOre("listAllmeatcooked", Items.COOKED_CHICKEN);
+        OreDictionary.registerOre("listAllrabbitcooked", Items.COOKED_RABBIT);
+        OreDictionary.registerOre("listAllmeatcooked", Items.COOKED_RABBIT);
+        OreDictionary.registerOre("listAllmuttoncooked", Items.COOKED_MUTTON);
+        OreDictionary.registerOre("listAllmeatcooked", Items.COOKED_MUTTON);
+
         // FRUIT
         OreDictionary.registerOre("cropApple", Items.APPLE);
         OreDictionary.registerOre("listAllfruit", Items.APPLE);
