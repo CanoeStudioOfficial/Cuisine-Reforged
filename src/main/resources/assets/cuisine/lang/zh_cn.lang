@@ -15,6 +15,7 @@ item.cuisine.glass_bottle.name=%s瓶
 item.cuisine.dish.name=菜品
 item.cuisine.drink.name=饮品
 item.cuisine.manual.name=烹饪笔记
+item.cuisine.recipe_page.name=食谱纸
 
 item.cuisine.material.wooden_arm.name=木手臂
 item.cuisine.material.wooden_arm.tip=放入发射器可模拟鼠标右击
@@ -347,6 +348,9 @@ cuisine.tip.crops.cave=洞穴作物
 cuisine.tip.crops.beach=滩涂作物
 cuisine.tip.solvent=不消耗溶剂
 cuisine.tip.empty_dish=这个盘子空空如也，甚至干净得发亮。
+cuisine.tip.recipe_page.empty=空白食谱纸。另一只手持菜品右键以记录配方。
+cuisine.tip.recipe_page.ingredients_count=食材数量：%d
+cuisine.tip.recipe_page.rename=潜行右键以清除
 cuisine.tip.spawn0=来自料理工艺的提示：
 cuisine.tip.spawn1=你没有安装Patchouli，因此无法显示完整的手册内容。
 

@@ -38,6 +38,7 @@ import snownee.cuisine.items.ItemIngredient;
 import snownee.cuisine.items.ItemIronSpatula;
 import snownee.cuisine.items.ItemKitchenKnife;
 import snownee.cuisine.items.ItemManual;
+import snownee.cuisine.items.ItemRecipePage;
 import snownee.cuisine.items.ItemModBoat;
 import snownee.cuisine.items.ItemModDoor;
 import snownee.cuisine.items.ItemMortar;
@@ -160,6 +161,7 @@ public class CuisineRegistry implements IModule
     //    public static final ItemMod FRYING_PAN = new ItemMod("frying_pan");
 
     public static final ItemManual MANUAL = new ItemManual("manual");
+    public static final ItemRecipePage RECIPE_PAGE = new ItemRecipePage("recipe_page");
 
     public static final ItemModBoat BOAT = new ItemModBoat("boat");
 

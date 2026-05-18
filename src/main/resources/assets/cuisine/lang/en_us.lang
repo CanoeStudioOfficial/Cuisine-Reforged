@@ -15,6 +15,7 @@ item.cuisine.glass_bottle.name=Bottle of %s
 item.cuisine.dish.name=Dish
 item.cuisine.drink.name=Drink
 item.cuisine.manual.name=Culinary Manual
+item.cuisine.recipe_page.name=Recipe Page
 
 item.cuisine.material.wooden_arm.name=Wooden Arm
 item.cuisine.material.wooden_arm.tip=Can simulate right-clicking when used in Dispenser
@@ -347,6 +348,9 @@ cuisine.tip.crops.cave=Crops from cave
 cuisine.tip.crops.beach=Crops from wetland
 cuisine.tip.solvent=Does not consume solvent
 cuisine.tip.empty_dish=Apparently this dish is empty, and it looks shining.
+cuisine.tip.recipe_page.empty=Blank recipe page. Use with a dish in the other hand to record.
+cuisine.tip.recipe_page.ingredients_count=Ingredients: %d
+cuisine.tip.recipe_page.rename=Sneak + Right click to clear
 cuisine.tip.spawn0=Tips from Cuisine：
 cuisine.tip.spawn1=You do not have Patchouli installed, so you cannot see the entire content in manual.
 
