@@ -155,7 +155,7 @@ public class TileJar extends TileInventoryBase implements ITickable
                     if (outputFluid != null)
                     {
                         outputFluid = outputFluid.copy();
-                        outputFluid.amount *= tank.getFluidAmount() / 100;
+                        outputFluid.amount *= count;
                         outputFluid.amount = MathHelper.clamp(outputFluid.amount, 0, tank.getCapacity());
                         tank.setFluid(outputFluid);
                     }

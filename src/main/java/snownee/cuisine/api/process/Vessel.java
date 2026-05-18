@@ -87,7 +87,7 @@ public final class Vessel extends AbstractCuisineProcessingRecipe implements Cui
                 }
                 else
                 {
-                    if (countFluid > countItem * 100)
+                    if (countFluid < 100)
                     {
                         return false;
                     }
