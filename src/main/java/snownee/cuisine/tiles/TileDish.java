@@ -116,8 +116,10 @@ public class TileDish extends TileBase
 
                     if (dish.getServes() <= 0)
                     {
-                        world.removeTileEntity(pos);
+                        this.dishContainer = ItemStack.EMPTY;
                     }
+                    IBlockState blockState = world.getBlockState(pos);
+                    world.notifyBlockUpdate(pos, blockState, blockState, 1 | 2);
                     return true;
                 }
             }
