@@ -95,7 +95,11 @@ public class NutritionCompat implements IModule
         {
             if (entry.getKey() == MaterialCategory.SUPERNATURAL)
             {
-                manager.add(NutrientList.get(), (float) (entry.getDoubleValue() * 0.1F));
+                float value = (float) (entry.getDoubleValue() * 0.1F);
+                for (Nutrient nutrient : NutrientList.get())
+                {
+                    manager.add(nutrient, value);
+                }
             }
             else if (materialCategoryToNutrient.containsKey(entry.getKey()))
             {
@@ -133,7 +137,10 @@ public class NutritionCompat implements IModule
                 {
                     if (category == MaterialCategory.SUPERNATURAL)
                     {
-                        manager.add(NutrientList.get(), CuisineConfig.COMPAT.supernaturalNutrientModifier);
+                        for (Nutrient nutrient : NutrientList.get())
+                        {
+                            manager.add(nutrient, CuisineConfig.COMPAT.supernaturalNutrientModifier);
+                        }
                     }
                     else
                     {
