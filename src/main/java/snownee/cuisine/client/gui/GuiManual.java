@@ -8,6 +8,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiConfirmOpenLink;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
 import snownee.cuisine.Cuisine;
 import snownee.cuisine.util.I18nUtil;
@@ -19,15 +20,19 @@ public class GuiManual extends GuiScreen
 {
     private static final ResourceLocation BOOK_GUI_TEXTURES = new ResourceLocation(Cuisine.MODID, "textures/gui/patchouli.png");
 
-    private static int PAGE_HEIGHT = 180;
-    private static int PAGE_WIDTH = 272;
-    private static int PAGE_MARGIN = 20;
+    private static final int PAGE_HEIGHT = 180;
+    private static final int PAGE_WIDTH = 272;
+    private static final int PAGE_MARGIN = 20;
 
     private DrawableResource pageGrid;
 
     private final String chatRoomURL;
     private final String mcmodWikiURL;
     private final String text = I18nUtil.translateWithEscape("gui.welcome");
+
+    private float scale = 1.0f;
+    private int scaledWidth;
+    private int scaledHeight;
 
     public GuiManual()
     {
@@ -44,36 +49,57 @@ public class GuiManual extends GuiScreen
         }
     }
 
+    private void calculateScale()
+    {
+        float scaleX = (float) (this.width - 20) / PAGE_WIDTH;
+        float scaleY = (float) (this.height - 20) / PAGE_HEIGHT;
+        scale = Math.min(1.0f, Math.min(scaleX, scaleY));
+        scaledWidth = (int) (PAGE_WIDTH * scale);
+        scaledHeight = (int) (PAGE_HEIGHT * scale);
+    }
+
     @Override
     public void initGui()
     {
         this.fontRenderer = AdvancedFontRenderer.INSTANCE;
+        calculateScale();
         this.buttonList.clear();
-        this.addButton(new GuiButton(0, (this.width + PAGE_WIDTH / 2 - 90) / 2, (this.height - 20) / 2, 80, 20, I18nUtil.translate("gui.openLink")));
-        this.addButton(new GuiButton(1, (this.width + PAGE_WIDTH / 2 - 90) / 2, (this.height - 20) / 2 + 40, 80, 20, I18nUtil.translate("gui.close")));
+
+        int centerX = this.width / 2;
+        int centerY = this.height / 2;
+        int btnX = centerX - 40;
+        int btnY = centerY + (scaledHeight / 2) - 70;
+
+        this.addButton(new GuiButton(0, btnX, btnY, 80, 20, I18nUtil.translate("gui.openLink")));
+        this.addButton(new GuiButton(1, btnX, btnY + 25, 80, 20, I18nUtil.translate("gui.close")));
 
         if (mc.getLanguageManager().getCurrentLanguage().getLanguageCode().startsWith("zh"))
         {
-            this.addButton(new GuiButton(2, (this.width + PAGE_WIDTH / 2 - 90) / 2, (this.height - 20) / 2 - 40, 80, 20, I18nUtil.translate("gui.openWiki")));
+            this.addButton(new GuiButton(2, btnX, btnY - 25, 80, 20, I18nUtil.translate("gui.openWiki")));
         }
     }
 
     @Override
     public void onGuiClosed()
     {
-        // NO-OP
     }
 
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks)
     {
-        mc.getTextureManager().bindTexture(BOOK_GUI_TEXTURES);
-        int i = (this.width - getXSize()) / 2;
-        int j = (this.height - getYSize()) / 2;
-        pageGrid.draw(mc, i, j);
+        calculateScale();
 
-        int originX = i + PAGE_MARGIN;
-        int originY = j + PAGE_MARGIN - 5;
+        GlStateManager.pushMatrix();
+        int i = (this.width - scaledWidth) / 2;
+        int j = (this.height - scaledHeight) / 2;
+        GlStateManager.translate(i, j, 0);
+        GlStateManager.scale(scale, scale, 1.0f);
+
+        mc.getTextureManager().bindTexture(BOOK_GUI_TEXTURES);
+        pageGrid.draw(mc, 0, 0);
+
+        int originX = PAGE_MARGIN;
+        int originY = PAGE_MARGIN - 5;
 
         List<String> strs = FontUtil.drawSplitStringOverflow(fontRenderer, text, originX, originY, getClientX(), getClientY(), 0, false);
         if (!strs.isEmpty())
@@ -82,22 +108,14 @@ public class GuiManual extends GuiScreen
             FontUtil.drawSplitStringOverflow(fontRenderer, strs, originX, originY, getClientX(), getClientY(), 0, false);
         }
 
+        GlStateManager.popMatrix();
+
         super.drawScreen(mouseX, mouseY, partialTicks);
-    }
-
-    private int getXSize()
-    {
-        return PAGE_WIDTH;
-    }
-
-    private int getYSize()
-    {
-        return PAGE_HEIGHT;
     }
 
     private int getClientX()
     {
-        return PAGE_WIDTH / 2 - 2 * PAGE_MARGIN + 5; // TODO
+        return PAGE_WIDTH / 2 - 2 * PAGE_MARGIN + 5;
     }
 
     private int getClientY()
